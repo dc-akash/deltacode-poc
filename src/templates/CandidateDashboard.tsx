@@ -1,59 +1,88 @@
+import Layout from "../components/Layout";
 import type { Assessment } from "../data/assessments";
+import "../styles/CandidateDashboard.css";
 
 type CandidateDashboardProps = {
-    assessments: Assessment[];
-    onNavigate: (screen: string) => void;
+  assessments: Assessment[];
+  onNavigate: (screen: string) => void;
 };
 
 function CandidateDashboard({
-    assessments,
-    onNavigate,
+  assessments,
+  onNavigate,
 }: CandidateDashboardProps) {
+  const publishedAssessments = assessments.filter(
+    (assessment) => assessment.status === "Published"
+  );
 
-    const publishedAssessments = assessments.filter(
-        (assessment) => assessment.status === "Published"
-    );
+  return (
+    <Layout role="Candidate">
+      <div className="candidate-header">
+        <h1 className="candidate-title">
+          Available Assessments
+        </h1>
 
-    return (
-        <div>
-            <h1>DeltaCode</h1>
-            <h2>Candidate Dashboard</h2>
-            <p>Welcome, Candidate</p>
+        <p className="candidate-subtitle">
+          Select an assessment and begin when you are ready.
+        </p>
+      </div>
 
-            <hr />
+      <div className="available-assessments">
+        {publishedAssessments.map((assessment) => (
+          <div
+            className="candidate-assessment-card"
+            key={assessment.id}
+          >
+            <div className="candidate-assessment-top">
+              <div>
+                <h2 className="candidate-assessment-title">
+                  {assessment.title}
+                </h2>
 
-            <h2>Available Assessments</h2>
+                <p className="candidate-assessment-description">
+                  {assessment.description}
+                </p>
+              </div>
 
-            {publishedAssessments.length === 0 ? (
-                <p>No assessments are currently available.</p>
-            ) : (
-                publishedAssessments.map((assessment) => (
-                    <div key={assessment.id}>
-                        <h3>{assessment.title}</h3>
+              <span className="available-badge">
+                AVAILABLE
+              </span>
+            </div>
 
-                        <p>{assessment.description}</p>
+            <div className="candidate-assessment-footer">
+              <div className="assessment-info">
+                <span>
+                  ⏱ {assessment.durationMinutes} minutes
+                </span>
 
-                        <p>
-                            Duration: {assessment.durationMinutes} minutes
-                        </p>
+                <span>
+                  ◉ {assessment.questionIds.length} questions
+                </span>
+              </div>
 
-                        <p>
-                            Question: {assessment.questionIds.length}
-                        </p>
+              <button
+                className="start-button"
+                onClick={() =>
+                  onNavigate(`assessment-${assessment.id}`)
+                }
+              >
+                Start Assessment →
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
-                        <button onClick={() => onNavigate(`assessment-${assessment.id}`)}>
-                            Start Assessment
-                        </button>
-                        <hr />
-                    </div>
-                ))
-            )}
-
-            <button onClick={() => onNavigate("landing")}>
-                Back
-            </button>
-        </div>
-    );
+      <div className="back-section">
+        <button
+          className="secondary-button"
+          onClick={() => onNavigate("landing")}
+        >
+          ← Back
+        </button>
+      </div>
+    </Layout>
+  );
 }
 
 export default CandidateDashboard;

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Assessment } from "../data/assessments";
 import { questions } from "../data/questions";
+import Layout from "../components/Layout";
+import "../styles/AssessmentPage.css";
 
 type AssessmentPageProps = {
     assessment: Assessment;
@@ -88,59 +90,120 @@ function AssessmentPage({
     };
 
     return (
-        <div>
-            <h1>{assessment.title}</h1>
+        <Layout role="Candidate">
+            <div className="assessment-page-header">
+                <div>
+                    <h1 className="assessment-page-title">
+                    {assessment.title}
+                    </h1>
 
-            <h2>Time Remaining: {formattedTime}</h2>
+                    <p className="question-counter">
+                    Question {currentQuestionIndex + 1} of{" "}
+                    {assessmentQuestions.length}
+                    </p>
+                </div>
 
-            <p>
-                Question {currentQuestionIndex + 1} of {" "}
-                {assessmentQuestions.length}
-            </p>
+                <div className="timer">
+                    ⏱ {formattedTime}
+                </div>
+            </div>
 
-            <hr />
+            <div className="progress-container">
+                <div className="progress-info">
+                    <span>Assessment Progress</span>
 
-            <h2>{currentQuestion.text}</h2>
+                    <span>
+                    {Math.round(
+                        ((currentQuestionIndex + 1) /
+                        assessmentQuestions.length) *
+                        100
+                    )}%
+                    </span>
+                </div>
 
-            <div>
-                {currentQuestion.options.map((option) => (
-                    <div key={option}>
-                        <label>
-                            <input type="radio"
-                            name={`question-${currentQuestion.id}`}
-                            value={option}
-                            checked={
-                                answers[currentQuestion.id] === option
-                            }
-                            onChange={() => handleAnswerSelect(option)}
-                            />
+                <div className="progress-bar">
+                    <div
+                    className="progress-fill"
+                    style={{
+                        width: `${
+                        ((currentQuestionIndex + 1) /
+                            assessmentQuestions.length) *
+                        100
+                        }%`,
+                    }}
+                    />
+                </div>
+            </div>
 
-                            {" "}
+            <div className="question-card">
+                <p className="question-label">
+                    QUESTION {currentQuestionIndex + 1}
+                </p>
 
-                            {option}
-                        </label>
-                    </div>
-                ))}
+                <h2 className="question-text">
+                    {currentQuestion.text}
+                </h2>
+
+                <div className="options-container">
+                    {currentQuestion.options.map((option, index) => {
+                        const optionLetter = String.fromCharCode(65 + index);
+
+                        return (
+                        <button
+                            key={option}
+                            type="button"
+                            className={`option ${
+                            answers[currentQuestion.id] === option
+                                ? "selected"
+                                : ""
+                            }`}
+                            onClick={() => handleAnswerSelect(option)}
+                        >
+                            <span className="option-letter">
+                            {optionLetter}
+                            </span>
+
+                            <span>{option}</span>
+                        </button>
+                        );
+                    })}
+                </div>
             </div>
 
             <hr />
 
-            <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>
-                Previous
-            </button>
+            <div className="assessment-navigation">
 
-            {currentQuestionIndex <
-            assessmentQuestions.length - 1 ? (
-                <button onClick={handleNext}>
-                Next Question
+                <button
+                    className="nav-button"
+                    disabled={currentQuestionIndex === 0}
+                    onClick={handlePrevious}
+                >
+                    ← Previous
                 </button>
-            ) : (
-                <button onClick={handleSubmit}>
-                Submit Assessment
-                </button>
-            )}
 
-            <hr />
+                {currentQuestionIndex ===
+                assessmentQuestions.length - 1 ? (
+
+                    <button
+                    className="submit-button"
+                    onClick={handleSubmit}
+                    >
+                    Submit Assessment
+                    </button>
+
+                ) : (
+
+                    <button
+                    className="nav-button"
+                    onClick={handleNext}
+                    >
+                    Next →
+                    </button>
+
+                )}
+
+            </div>
 
             <p>
                 Answered:{" "}
@@ -149,7 +212,7 @@ function AssessmentPage({
                 }{" "}
                 / {assessmentQuestions.length}
             </p>
-        </div>
+        </Layout>
     );
 }
 

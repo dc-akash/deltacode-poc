@@ -1,53 +1,63 @@
+import Layout from "../components/Layout";
+import "../styles/ResultPage.css";
+
 type ResultPageProps = {
-    score: number;
-    totalMarks: number;
-    correctAnswers: number;
-    totalQuestions: number;
-    onNavigate: (screen: string) => void;
+  score: number;
+  totalMarks: number;
+  correctAnswers: number;
+  totalQuestions: number;
+  onNavigate: (screen: string) => void;
 };
 
 function ResultPage({
-    score,
-    totalMarks,
-    correctAnswers,
-    totalQuestions,
-    onNavigate,
+  onNavigate,
 }: ResultPageProps) {
-    const percentage = totalMarks > 0 ? Math.round((score / totalMarks) * 100) : 0;
+  return (
+    <Layout role="Candidate">
+      <div className="result-page">
 
-    const incorrectAnswers = totalQuestions - correctAnswers;
+        <div className="result-header">
+          <div className="result-icon">
+            ✓
+          </div>
 
-    return (
-        <div>
-            <h1>Assessment Result</h1>
+          <h1 className="result-title">
+            Assessment Submitted
+          </h1>
 
-            <hr />
-
-            <h2>
-                Score: {score} / {totalMarks}
-            </h2>
-
-            <h3>Percentage: {percentage}%</h3>
-
-            <p>
-                Correct Answers: {" "}
-                <strong>{correctAnswers}</strong>
-            </p>
-
-            <p>
-                Incorrect / Unanswered: {" "}
-                <strong>{incorrectAnswers}</strong>
-            </p>
-
-            <hr />
-
-            <h2>Assessment Completed</h2>
-
-            <button onClick={() => onNavigate("candidate")}>
-                Back to Dashboard
-            </button>
+          <p className="result-subtitle">
+            Your assessment has been successfully submitted.
+          </p>
         </div>
-    );
+
+        <div className="submission-card">
+          <div className="submission-card-content">
+            <h2>Thank you for completing the assessment.</h2>
+
+            <p>
+              Your responses have been recorded and are now
+              under evaluation.
+            </p>
+
+            <p>
+              You will be informed about the next steps through
+              the appropriate communication channel.
+            </p>
+          </div>
+        </div>
+
+        <div className="result-actions">
+          <button
+            className="result-button"
+            onClick={() => onNavigate("candidate")}
+          >
+            Back to Dashboard
+          </button>
+        </div>
+
+      </div>
+    </Layout>
+  );
 }
 
 export default ResultPage;

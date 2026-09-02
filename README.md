@@ -2,7 +2,7 @@
 
 A frontend proof of concept for an internal online assessment platform.
 
-The purpose of this POC is to demonstrate the core workflow of the proposed **DeltaCode / AssessAI assessment platform** before building the full production architecture.
+The purpose of this POC is to demonstrate the core workflow of the proposed **DeltaCode / DeltaCode assessment platform** before building the full production architecture.
 
 ## Features
 

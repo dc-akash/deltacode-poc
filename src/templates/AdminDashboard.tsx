@@ -1,5 +1,7 @@
 import StatCard from "../components/StatCard";
+import Layout from "../components/Layout";
 import type { Assessment } from "../data/assessments";
+import "../styles/AdminDashboard.css";
 
 type AdminDashboardProps = {
   assessments: Assessment[];
@@ -11,60 +13,110 @@ function AdminDashboard({
   onNavigate,
 }: AdminDashboardProps) {
   return (
-    <div>
-      <h1>AssessAI</h1>
+    <Layout role="Admin">
+      <div className="dashboard-header">
+        <div>
+          <h1 className="dashboard-title">
+            Assessment Dashboard
+          </h1>
 
-      <h2>Admin Dashboard</h2>
+          <p className="dashboard-subtitle">
+            Manage assessments, questions and candidate
+            evaluation workflows.
+          </p>
+        </div>
 
-      <p>Welcome, Admin</p>
+        <div className="dashboard-actions">
+          <button
+            className="secondary-button"
+            onClick={() => onNavigate("question-bank")}
+          >
+            Question Bank
+          </button>
 
-      <div>
-        <StatCard title="Questions" value={25} />
+          <button
+            className="primary-button"
+            onClick={() => onNavigate("create-assessment")}
+          >
+            + Create Assessment
+          </button>
+        </div>
+      </div>
+
+      <div className="stats-grid">
+        <StatCard
+          title="Questions"
+          value={25}
+        />
+
         <StatCard
           title="Assessments"
           value={assessments.length}
         />
-        <StatCard title="Candidates" value={42} />
-        <StatCard title="Attempts" value={87} />
+
+        <StatCard
+          title="Candidates"
+          value={42}
+        />
+
+        <StatCard
+          title="Attempts"
+          value={87}
+        />
       </div>
 
-      <hr />
+      <section className="assessment-section">
+        <h2 className="section-title">
+          Assessments
+        </h2>
 
-      <h2>Assessments</h2>
+        <div className="assessment-list">
+          {assessments.map((assessment) => (
+            <div
+              className="assessment-card"
+              key={assessment.id}
+            >
+              <div className="assessment-card-top">
+                <div>
+                  <h3 className="assessment-title">
+                    {assessment.title}
+                  </h3>
 
-      {assessments.map((assessment) => (
-        <div key={assessment.id}>
-          <h3>{assessment.title}</h3>
+                  <p className="assessment-description">
+                    {assessment.description}
+                  </p>
+                </div>
 
-          <p>{assessment.description}</p>
+                <span
+                  className={`status-badge ${
+                    assessment.status === "Published"
+                      ? "status-published"
+                      : "status-draft"
+                  }`}
+                >
+                  {assessment.status.toUpperCase()}
+                </span>
+              </div>
 
-          <p>
-            {assessment.durationMinutes} minutes |{" "}
-            {assessment.questionIds.length} questions
-          </p>
-
-          <p>
-            Status: <strong>{assessment.status}</strong>
-          </p>
-
-          <hr />
+              <div className="assessment-meta">
+                {assessment.durationMinutes} minutes
+                {" • "}
+                {assessment.questionIds.length} questions
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </section>
 
-      <button onClick={() => onNavigate("question-bank")}>
-        Question Bank
-      </button>
-
-      <button
-        onClick={() => onNavigate("create-assessment")}
-      >
-        Create Assessment
-      </button>
-
-      <button onClick={() => onNavigate("landing")}>
-        Back
-      </button>
-    </div>
+      <div style={{ marginTop: "40px" }}>
+        <button
+          className="secondary-button"
+          onClick={() => onNavigate("landing")}
+        >
+          ← Back
+        </button>
+      </div>
+    </Layout>
   );
 }
 

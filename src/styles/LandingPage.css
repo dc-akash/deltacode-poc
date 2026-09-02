@@ -1,0 +1,209 @@
+.landing-page {
+  min-height: 100vh;
+  background: var(--primary);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-header {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 64px;
+
+  border-bottom: 1px solid #333;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.landing-brand-mark {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent);
+
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.landing-brand-name {
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.landing-brand-product {
+  font-size: 12px;
+  color: #a6a6a6;
+
+  margin-top: 3px;
+}
+
+.landing-content {
+  flex: 1;
+
+  max-width: 1200px;
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding: 90px 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-tag {
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  color: #aaaaaa;
+
+  margin-bottom: 24px;
+}
+
+.landing-title {
+  font-size: clamp(52px, 8vw, 96px);
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+
+  margin: 0;
+
+  max-width: 900px;
+}
+
+.landing-title span {
+  color: var(--accent);
+}
+
+.landing-description {
+  margin-top: 32px;
+
+  max-width: 650px;
+
+  font-size: 18px;
+  line-height: 1.6;
+
+  color: #bdbdbd;
+}
+
+.landing-actions {
+  display: flex;
+  gap: 16px;
+
+  margin-top: 48px;
+}
+
+.landing-primary-button {
+  background: var(--accent);
+
+  border: none;
+
+  color: white;
+
+  padding: 16px 28px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.landing-primary-button:hover {
+  opacity: 0.9;
+}
+
+.landing-secondary-button {
+  background: transparent;
+
+  border: 1px solid #555;
+
+  color: white;
+
+  padding: 16px 28px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.landing-secondary-button:hover {
+  background: #222;
+}
+
+.landing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px 64px;
+
+  background: #000000;
+  border-top: 1px solid #333;
+
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.landing-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.landing-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .landing-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-header {
+    padding: 0 24px;
+  }
+
+  .landing-content {
+    padding: 60px 24px;
+  }
+
+  .landing-title {
+    letter-spacing: -2px;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .landing-footer {
+    padding: 20px 24px;
+  }
+}

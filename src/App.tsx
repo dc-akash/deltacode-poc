@@ -7,6 +7,7 @@ import { assessments as initialAssessments } from "./data/assessments";
 import type { Assessment } from "./data/assessments";
 import AssessmentPage from "./templates/AssessmentPage";
 import ResultPage from "./templates/ResultPage";
+import LandingPage from "./templates/LandingPage";
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("landing");
@@ -96,22 +97,10 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>AssessAI</h1>
-
-      <p>Internal Assessment Platform</p>
-
-      <div>
-        <button onClick={() => setCurrentScreen("admin")}>
-          Admin Demo
-        </button>
-
-        <button onClick={() => setCurrentScreen("candidate")}>
-          Candidate Demo
-        </button>
-      </div>
-    </div>
-  );
+    <LandingPage
+      onNavigate={setCurrentScreen}
+    />    
+  )
 }
 
 export default App;

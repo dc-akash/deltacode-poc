@@ -1,0 +1,459 @@
+.question-bank-page {
+    width: 100%;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.question-bank-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.question-bank-title {
+    font-size: 42px;
+    margin: 0 0 10px;
+    letter-spacing: -1.5px;
+}
+
+.question-bank-subtitle {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.question-bank-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   Shared Section Styles
+   ========================= */
+
+.create-question-section,
+.questions-section {
+    margin-bottom: 48px;
+}
+
+.section-heading,
+.questions-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin: 0 0 6px;
+    font-size: 24px;
+}
+
+.section-description {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================
+   Create Question Form
+   ========================= */
+
+.question-form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-input {
+    height: 46px;
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-select {
+    height: 46px;
+    cursor: pointer;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   Answer Options
+   ========================= */
+
+.options-section {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    margin-top: 4px;
+}
+
+.options-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.options-heading h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.options-heading span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+}
+
+/* =========================
+   Question Configuration
+   ========================= */
+
+.question-config {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    margin-top: 4px;
+}
+
+.question-config .form-group {
+    margin-bottom: 0;
+}
+
+/* =========================
+   Form Actions
+   ========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 24px;
+}
+
+/* =========================
+   Question List Header
+   ========================= */
+
+.questions-section-header {
+    align-items: center;
+}
+
+.question-count {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.question-count span {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* =========================
+   Question Cards
+   ========================= */
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.question-bank-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.question-bank-card:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   Question Card Header
+   ========================= */
+
+.question-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.question-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background: var(--text-primary);
+    color: var(--surface);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.question-card-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.subject-badge,
+.difficulty-badge,
+.marks-badge {
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.subject-badge {
+    background: #f0f0f0;
+    color: var(--text-primary);
+}
+
+.marks-badge {
+    background: #f0f0f0;
+    color: var(--text-secondary);
+}
+
+.difficulty-easy {
+    background: #e8f4ec;
+    color: var(--success);
+}
+
+.difficulty-medium {
+    background: #fff3dc;
+    color: var(--warning);
+}
+
+.difficulty-hard {
+    background: #fdeaea;
+    color: #c0392b;
+}
+
+/* =========================
+   Question Text
+   ========================= */
+
+.question-card-title {
+    margin: 0 0 22px;
+    color: var(--text-primary);
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 600;
+}
+
+/* =========================
+   Options
+   ========================= */
+
+.question-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.question-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.025);
+    border: 1px solid var(--border);
+    padding: 12px;
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================
+   Correct Answer
+   ========================= */
+
+.correct-answer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.correct-answer-label {
+    color: var(--text-secondary);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .question-bank-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .question-config {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .question-config .form-group:first-child {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .question-bank-title {
+        font-size: 34px;
+    }
+
+    .question-bank-actions {
+        width: 100%;
+    }
+
+    .question-bank-actions button {
+        flex: 1;
+    }
+
+    .question-form-card {
+        padding: 20px;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .question-config {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .question-config .form-group:first-child {
+        grid-column: auto;
+    }
+
+    .section-heading,
+    .questions-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .question-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .question-card-tags {
+        justify-content: flex-start;
+    }
+
+    .question-options {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,30 @@
+.submission-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 40px;
+  margin-bottom: 36px;
+}
+
+.submission-card-content {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.submission-card-content h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.submission-card-content p {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .submission-card {
+    padding: 28px 20px;
+  }
+}

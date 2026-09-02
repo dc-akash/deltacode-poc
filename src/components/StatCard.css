@@ -1,0 +1,22 @@
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  min-height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card-title {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.stat-card-value {
+  margin: 20px 0 0;
+  font-size: 36px;
+  letter-spacing: -1px;
+}
