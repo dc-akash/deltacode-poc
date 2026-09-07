@@ -243,7 +243,7 @@ function AdminDashboard({
                               <strong>
                                 {assessment.status === "Published"
                                   ? `${progress}%`
-                                  : "—"}
+                                  : "-"}
                               </strong>
                             </div>
                           </div>
