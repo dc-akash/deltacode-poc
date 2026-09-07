@@ -802,6 +802,8 @@ function QuestionBank({ onNavigate }: QuestionBankProps) {
             {filteredQuestions.length > 0 ? (
               filteredQuestions.map((question, index) => {
 
+                console.log(index);
+
                 const selected =
                   selectedQuestions.includes(question.id);
 
