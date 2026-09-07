@@ -1,0 +1,64 @@
+:root {
+  /* =========================
+     Delta Capita Inspired Theme
+     ========================= */
+
+  --dc-pink: #d11f7b;
+  --dc-pink-hover: #b91869;
+  --dc-pink-light: #f7deeb;
+  --dc-pink-lighter: #fceef5;
+
+  --dc-white: #ffffff;
+  --dc-background: #fcfbfe;
+
+  --dc-navy: #0b0a35;
+  --dc-purple: #45053b;
+
+  --dc-dark-gradient: linear-gradient(
+    135deg,
+    #0b0a35 0%,
+    #21092f 48%,
+    #45053b 100%
+  );
+
+  --dc-pink-gradient: linear-gradient(
+    135deg,
+    #d11f7b 0%,
+    #a91468 100%
+  );
+
+  /* Text */
+  --text-primary: #17152d;
+  --text-secondary: #68667a;
+  --text-muted: #9693a3;
+
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #c5c2d0;
+
+  /* Borders */
+  --border-light: #ebe8f0;
+  --border-dark: rgba(255, 255, 255, 0.14);
+
+  /* Surfaces */
+  --surface-white: #ffffff;
+  --surface-soft: #f8f6fa;
+  --surface-pink: #fdf0f6;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 14px rgba(11, 10, 53, 0.05);
+  --shadow-md: 0 12px 35px rgba(11, 10, 53, 0.08);
+  --shadow-lg: 0 25px 70px rgba(11, 10, 53, 0.14);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+
+  /* Layout */
+  --content-max-width: 1280px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.3s ease;
+}

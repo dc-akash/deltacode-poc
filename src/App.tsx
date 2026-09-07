@@ -8,6 +8,7 @@ import type { Assessment } from "./data/assessments";
 import AssessmentPage from "./templates/AssessmentPage";
 import ResultPage from "./templates/ResultPage";
 import LandingPage from "./templates/LandingPage";
+import AssessmentResults from "./templates/AssessmentResults";
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("landing");
@@ -38,6 +39,14 @@ function App() {
         onNavigate={setCurrentScreen}
         assessments={assessments}
         setAssessments={setAssessments}
+      />
+    );
+  }
+
+  if (currentScreen === "assessment-results") {
+    return (
+      <AssessmentResults
+        onNavigate={setCurrentScreen}
       />
     );
   }
